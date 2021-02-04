@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+//Task
+//You have to print the character, ch, in the first line. Then print s in next line. In the last line print the sentence, sen.
+
+int main() 
+{
+    char ch[100];
+    char s[100];
+    char sen[100];
+    gets(ch);
+    gets(s);
+    gets(sen);
+    puts(ch);
+    puts(s);
+    puts(sen);
+    return 0;
+}

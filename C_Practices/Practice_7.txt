@@ -1,0 +1,54 @@
+/* Task
+
+For each integer  in the interval [a,b] (given as input) :
+
+If 1<=n<=9, then print the English representation of it in lowercase. That is "one" for 1, "two" for 2, and so on.
+Else if n>9 and it is an even number, then print "even".
+Else if n>9 and it is an odd number, then print "odd". */
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int i;
+char *status[2]={   "even",
+                    "odd"};
+char *numbers[10]={ "zero",
+                    "one",
+                    "two",
+                    "three",
+                    "four",
+                    "five",
+                    "six",
+                    "seven",
+                    "eight",
+                    "nine"};
+                    
+int main() 
+{
+    int a, b;
+    scanf("%d\n%d", &a, &b);
+    if(b<=9)
+    {
+          for(int i = a; i <= b; i++) 
+          {
+        printf("%s\n",numbers[i]);
+          }
+    }
+    else if(b>9)
+    {
+        for(int i = a; i <= 9; i++) 
+          {
+        printf("%s\n",numbers[i]);
+          }
+        for(int i = 10; i <= b; i++) 
+          {
+          int mod = i % 2;
+        printf("%s\n",status[mod]);
+          }
+          
+    }
+    
+}
+

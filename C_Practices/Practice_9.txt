@@ -1,0 +1,65 @@
+/* Function Description
+
+Complete the calculate_the_maximum function in the editor below.
+
+calculate_the_maximum has the following parameters:
+
+int n: the highest number to consider
+int k: the result of a comparison must be lower than this number to be considered
+Prints
+
+Print the maximum values for the and, or and xor comparisons, each on a separate line. */
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void calculate_the_maximum(int n, int k) {
+  int or_function, and_function, xor_function;
+  int array[n];
+  int max_or_function = 0;
+  int max_and_function = 0;
+  int max_xor_function = 0;
+  
+  for(int i=0;i<n;i++)
+  {
+      array[i] = i+1;
+  }
+  
+  for(int i=0;i<n;i++)
+  {
+      for(int j=i+1;j<n;j++)
+      {
+          and_function  = (array[i] & array[j]);
+          or_function   = (array[i] | array[j]);
+          xor_function  = (array[i] ^ array[j]);
+          
+          if(k>and_function && and_function>max_and_function)
+          {
+              max_and_function = and_function;
+              
+          }
+          if(k>or_function && or_function>max_or_function)
+          {
+              max_or_function = or_function;
+          }
+          if(k>xor_function && xor_function>max_xor_function)
+          {
+              max_xor_function = xor_function;
+          }
+      }
+  }
+  printf("%d\n",max_and_function);
+  printf("%d\n",max_or_function);
+  printf("%d\n",max_xor_function);
+}
+
+int main() {
+    int n, k;
+  
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+    
+    return 0;
+}
